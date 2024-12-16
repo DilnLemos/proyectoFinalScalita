@@ -141,74 +141,74 @@ class RiegoOptimoTest extends AnyFunSuite {
   }
   
   //tests para ProgramacionRiegoOptima
-  test("test_1 ProgramaciónRiegoOptima") {
+  test("test_1 ProgramaciónRiegoOptimo") {
     val finca = Vector((1, 1, 1), (2, 2, 2), (3, 3, 3))
     val distancias = Vector(Vector(0, 1, 2), Vector(1, 0, 1), Vector(2, 1, 0))
     val res = objRiego.ProgramacionRiegoOptimo(finca, distancias)
-    assert(res == Vector(0, 1, 2), "Programación de riego óptima")
+    assert(res == (Vector(0, 1, 2), 13))
   }
 
-  test("test_2 ProgramaciónRiegoOptima") {
+  test("test_2 ProgramaciónRiegoOptimo") {
     val finca = Vector((1, 1, 1), (2, 2, 2), (3, 3, 3), (4, 4, 4))
     val distancias = Vector(Vector(0, 1, 2, 3), Vector(1, 0, 1, 2), Vector(2, 1, 0, 1), Vector(3, 2, 1, 0))
     val res = objRiego.ProgramacionRiegoOptimo(finca, distancias)
-    assert(res == Vector(0, 1, 2, 3), "Programación de riego óptima")
+    assert(res == (Vector(0, 1, 2, 3), 38))
   }
 
-  test("test_3 ProgramaciónRiegoOptima") {
+  test("test_3 ProgramaciónRiegoOptimo") {
     val finca = Vector((1, 1, 1), (2, 2, 2), (3, 3, 3), (4, 4, 4), (5, 5, 5))
     val distancias = Vector(Vector(0, 1, 2, 3, 4), Vector(1, 0, 1, 2, 3), Vector(2, 1, 0, 1, 2), Vector(3, 2, 1, 0, 1), Vector(4, 3, 2, 1, 0))
     val res = objRiego.ProgramacionRiegoOptimo(finca, distancias)
-    assert(res == Vector(0, 1, 2, 3, 4), "Programación de riego óptima")
+    assert(res == (Vector(0, 1, 2, 3, 4), 89)) 
   }
 
-  test("test_4 ProgramaciónRiegoOptima") {
+  test("test_4 ProgramaciónRiegoOptimo") {
     val finca = Vector((1, 1, 1), (2, 2, 2), (3, 3, 3), (4, 4, 4), (5, 5, 5), (6, 6, 6))
     val distancias = Vector(Vector(0, 1, 2, 3, 4, 5), Vector(1, 0, 1, 2, 3, 4), Vector(2, 1, 0, 1, 2, 3), Vector(3, 2, 1, 0, 1, 2), Vector(4, 3, 2, 1, 0, 1), Vector(5, 4, 3, 2, 1, 0))
     val res = objRiego.ProgramacionRiegoOptimo(finca, distancias)
-    assert(res == Vector(0, 1, 2, 3, 4, 5), "Programación de riego óptima")
+    assert(res == (Vector(0, 1, 2, 3, 4, 5), 180))
   }
 
-  test("test_5 ProgramaciónRiegoOptima") {
+  test("test_5 ProgramaciónRiegoOptimo") {
     val finca = Vector((1, 1, 1), (2, 2, 2), (3, 3, 3), (4, 4, 4), (5, 5, 5), (6, 6, 6), (7, 7, 7))
     val distancias = Vector(Vector(0, 1, 2, 3, 4, 5, 6), Vector(1, 0, 1, 2, 3, 4, 5), Vector(2, 1, 0, 1, 2, 3, 4), Vector(3, 2, 1, 0, 1, 2, 3), Vector(4, 3, 2, 1, 0, 1, 2), Vector(5, 4, 3, 2, 1, 0, 1), Vector(6, 5, 4, 3, 2, 1, 0))
     val res = objRiego.ProgramacionRiegoOptimo(finca, distancias)
-    assert(res == Vector(0, 1, 2, 3, 4, 5, 6), "Programación de riego óptima")
+    assert(res == (Vector(0, 1, 2, 3, 4, 5, 6), 328))
   }
 
-//test para ProgramacionRiegoOptima Paralelizada
-  test("test_1 ProgramacionRiegoOptimaParalelizada") {
+//test para ProgramacionRiegoOptimo Paralelizada
+  test("test_1 ProgramacionRiegoOptimo Paralelizada") {
     val finca = Vector((1, 1, 1), (2, 2, 2), (3, 3, 3))
     val distancias = Vector(Vector(0, 1, 2), Vector(1, 0, 1), Vector(2, 1, 0))
     val res = objRiego.ProgramacionRiegoOptimoPar(finca, distancias)
-    assert(res == Vector(0, 1, 2), "Programación de riego óptima")
+    assert(res == (Vector(0, 1, 2), 13))
   }
 
-  test("test_2 ProgramacionRiegoOptimaParalelizada") {
+  test("test_2 ProgramacionRiegoOptimo Paralelizada") {
     val finca = Vector((1, 1, 1), (2, 2, 2), (3, 3, 3), (4, 4, 4))
     val distancias = Vector(Vector(0, 1, 2, 3), Vector(1, 0, 1, 2), Vector(2, 1, 0, 1), Vector(3, 2, 1, 0))
     val res = objRiego.ProgramacionRiegoOptimoPar(finca, distancias)
-    assert(res == Vector(0, 1, 2, 3), "Programación de riego óptima")
+    assert(res == (Vector(0, 1, 2, 3),38))
   }
 
-  test("test_3 ProgramacionRiegoOptimaParalelizada") {
+  test("test_3 ProgramacionRiegoOptimo Paralelizada") {
     val finca = Vector((1, 1, 1), (2, 2, 2), (3, 3, 3), (4, 4, 4), (5, 5, 5))
     val distancias = Vector(Vector(0, 1, 2, 3, 4), Vector(1, 0, 1, 2, 3), Vector(2, 1, 0, 1, 2), Vector(3, 2, 1, 0, 1), Vector(4, 3, 2, 1, 0))
     val res = objRiego.ProgramacionRiegoOptimoPar(finca, distancias)
-    assert(res == Vector(0, 1, 2, 3, 4), "Programación de riego óptima")
+    assert(res == (Vector(0, 1, 2, 3, 4), 89))
   }
 
-  test("test_4 ProgramacionRiegoOptimaParalelizada") {
+  test("test_4 ProgramacionRiegoOptimo Paralelizada") {
     val finca = Vector((1, 1, 1), (2, 2, 2), (3, 3, 3), (4, 4, 4), (5, 5, 5), (6, 6, 6))
     val distancias = Vector(Vector(0, 1, 2, 3, 4, 5), Vector(1, 0, 1, 2, 3, 4), Vector(2, 1, 0, 1, 2, 3), Vector(3, 2, 1, 0, 1, 2), Vector(4, 3, 2, 1, 0, 1), Vector(5, 4, 3, 2, 1, 0))
     val res = objRiego.ProgramacionRiegoOptimoPar(finca, distancias)
-    assert(res == Vector(0, 1, 2, 3, 4, 5), "Programación de riego óptima")
+    assert(res == (Vector(0, 1, 2, 3, 4, 5), 180))
   }
 
-  test("test_5 ProgramacionRiegoOptimaParalelizada") {
+  test("test_5 ProgramacionRiegoOptimo Paralelizada") {
     val finca = Vector((1, 1, 1), (2, 2, 2), (3, 3, 3), (4, 4, 4), (5, 5, 5), (6, 6, 6), (7, 7, 7))
     val distancias = Vector(Vector(0, 1, 2, 3, 4, 5, 6), Vector(1, 0, 1, 2, 3, 4, 5), Vector(2, 1, 0, 1, 2, 3, 4), Vector(3, 2, 1, 0, 1, 2, 3), Vector(4, 3, 2, 1, 0, 1, 2), Vector(5, 4, 3, 2, 1, 0, 1), Vector(6, 5, 4, 3, 2, 1, 0))
     val res = objRiego.ProgramacionRiegoOptimoPar(finca, distancias)
-    assert(res == Vector(0, 1, 2, 3, 4, 5, 6), "Programación de riego óptima")
+    assert(res == (Vector(0, 1, 2, 3, 4, 5, 6), 328))
   }
 }
