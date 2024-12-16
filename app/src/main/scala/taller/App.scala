@@ -12,9 +12,7 @@ object App {
     //println(greeting())
 
     val RiegoOptimo = new RiegoOptimo()
-
-    val longitud_fincas = 10
-
+    val longitud = 10
     /*for (i <- 1 to longitud_fincas){
       val f = RiegoOptimo.fincaAlAzar(i);
       val d = RiegoOptimo.distanciaAlAzar(i)
@@ -36,6 +34,7 @@ object App {
       val ratio = timeSeq.value / timePar.value
       println(s"Tiempo versión secuencial(ms)$timeSeq & Tiempo versión paralela(ms) $timePar & $ratio & longitud: $i")
     } */
+
   //pruebas de tiempo de ejecución para CostoRiegoFinca
     /*for (i: Int <- 1 to longitud_fincas by 2) yield {
 
