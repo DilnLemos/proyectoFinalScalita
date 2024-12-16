@@ -14,6 +14,7 @@ object App {
     val RiegoOptimo = new RiegoOptimo()
 
     val longitud_fincas = 10
+
     /*for (i <- 1 to longitud_fincas){
       val f = RiegoOptimo.fincaAlAzar(i);
       val d = RiegoOptimo.distanciaAlAzar(i)
@@ -21,6 +22,19 @@ object App {
       val timePar = withWarmer(new Warmer.Default) measure { RiegoOptimo.generarProgramacionesRiegoPar(f) }
       val ratio = timeSeq.value / timePar.value
       println(s"$timeSeq & $timePar & $ratio & $i")
+    } */
+    /*
+    println(s"pruebas ejecución - costo movilidad y version paralela")
+    for (i <- 1 to longitud_fincas){
+      val f = RiegoOptimo.fincaAlAzar(i);
+      val p = RiegoOptimo.generarProgramacionesRiego(f)
+      val d = RiegoOptimo.distanciaAlAzar(i)
+      val r = RiegoOptimo.ProgramacionRiegoOptimo(f, d)
+
+      val timeSeq = withWarmer(new Warmer.Default) measure { RiegoOptimo.costoMovilidad(f,r._1,d) }
+      val timePar = withWarmer(new Warmer.Default) measure { RiegoOptimo.costoMovilidadPar(f,r._1,d) }
+      val ratio = timeSeq.value / timePar.value
+      println(s"Tiempo versión secuencial(ms)$timeSeq & Tiempo versión paralela(ms) $timePar & $ratio & longitud: $i")
     } */
   //pruebas de tiempo de ejecución para CostoRiegoFinca
     /*for (i: Int <- 1 to longitud_fincas by 2) yield {
