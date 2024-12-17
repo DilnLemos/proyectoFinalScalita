@@ -1,3 +1,4 @@
+
 package taller
 
 import org.scalatest.funsuite.AnyFunSuite
@@ -210,5 +211,77 @@ class RiegoOptimoTest extends AnyFunSuite {
     val distancias = Vector(Vector(0, 1, 2, 3, 4, 5, 6), Vector(1, 0, 1, 2, 3, 4, 5), Vector(2, 1, 0, 1, 2, 3, 4), Vector(3, 2, 1, 0, 1, 2, 3), Vector(4, 3, 2, 1, 0, 1, 2), Vector(5, 4, 3, 2, 1, 0, 1), Vector(6, 5, 4, 3, 2, 1, 0))
     val res = objRiego.ProgramacionRiegoOptimoPar(finca, distancias)
     assert(res == (Vector(0, 1, 2, 3, 4, 5, 6), 328))
+  }
+
+  test("test costo movilidad 1 "){
+    val f = Vector((3,4,5),(5,4,1),(1,2,3),(3,2,1),(6,3,2))
+    val pi = Vector(0,5,4,2,3,1)
+    val d = Vector(Vector(0, 16, 4, 18, 14, 5), Vector(16, 0, 12, 15, 1, 18), Vector(4, 12, 0, 7, 16, 18), Vector(18, 15, 7, 0, 1, 2), Vector(14, 1, 16, 1, 0, 14), Vector(5, 18, 18, 2, 14, 0))
+    val res = objRiego.costoMovilidad(f,pi,d)
+    assert( res == 57 )
+  }
+  test("test costo movilidad 2 "){
+    val f = Vector((1,2,3), (4,5,6), (7,8,9))
+    val pi = Vector(0, 2, 1, 0)
+    val d = Vector(Vector(0, 10, 20),Vector(10, 0, 15),Vector(20, 15, 0))
+    val res = objRiego.costoMovilidad(f,pi,d)
+    assert( res == 45 )
+  }
+  test("test costo movilidad 3 "){
+    val f = Vector((2,3,4), (5,6,7), (8,9,10))
+    val pi = Vector(1, 0, 2, 1)
+    val d = Vector(Vector(0, 12, 25),Vector(12, 0, 18),Vector(25, 18, 0))
+    val res = objRiego.costoMovilidad(f,pi,d)
+    assert( res == 55 )
+  }
+  test("test costo movilidad 4 "){
+    val f = Vector((3,4,5), (6,7,8), (9,10,11))
+    val pi = Vector(2, 1, 0)
+    val d = Vector(Vector(0, 8, 14),Vector(8, 0, 10),Vector(14, 10, 0))
+    val res = objRiego.costoMovilidad(f,pi,d)
+    assert( res == 18 )
+  }
+  test("test costo movilidad 5 "){
+  val f = Vector((10, 20, 30), (40, 50, 60), (70, 80, 90), (100, 110, 120))
+  val pi = Vector(3, 2, 1, 0)
+  val d = Vector(Vector(0, 7, 14, 21), Vector(7, 0, 10, 15), Vector(14, 10, 0, 5), Vector(21, 15, 5, 0))
+  val res = objRiego.costoMovilidad(f,pi,d)
+  assert( res == 22 )
+  }
+  /////
+  test("test costo movilidad PARALELO 1 "){ 
+    val f = Vector((3,4,5),(5,4,1),(1,2,3),(3,2,1),(6,3,2))
+    val pi = Vector(0,5,4,2,3,1)
+    val d = Vector(Vector(0, 16, 4, 18, 14, 5), Vector(16, 0, 12, 15, 1, 18), Vector(4, 12, 0, 7, 16, 18), Vector(18, 15, 7, 0, 1, 2), Vector(14, 1, 16, 1, 0, 14), Vector(5, 18, 18, 2, 14, 0))
+    val res = objRiego.costoMovilidadPar(f,pi,d)
+    assert( res == 57 )
+  }
+  test("test costo movilidad PARALELO 2 "){
+    val f = Vector((1,2,3), (4,5,6), (7,8,9))
+    val pi = Vector(0, 2, 1, 0)
+    val d = Vector(Vector(0, 10, 20),Vector(10, 0, 15),Vector(20, 15, 0))
+    val res = objRiego.costoMovilidadPar(f,pi,d)
+    assert( res == 45 )
+  }
+  test("test costo movilidad PARALELO 3 "){
+    val f = Vector((2,3,4), (5,6,7), (8,9,10))
+    val pi = Vector(1, 0, 2, 1)
+    val d = Vector(Vector(0, 12, 25),Vector(12, 0, 18),Vector(25, 18, 0))
+    val res = objRiego.costoMovilidadPar(f,pi,d)
+    assert( res == 55 )
+  }
+  test("test costo movilidad PARALELO 4 "){
+    val f = Vector((3,4,5), (6,7,8), (9,10,11))
+    val pi = Vector(2, 1, 0)
+    val d = Vector(Vector(0, 8, 14),Vector(8, 0, 10),Vector(14, 10, 0))
+    val res = objRiego.costoMovilidadPar(f,pi,d)
+    assert( res == 18 )
+  }
+  test("test costo movilidad PARALELO 5 "){
+  val f = Vector((10, 20, 30), (40, 50, 60), (70, 80, 90), (100, 110, 120))
+  val pi = Vector(3, 2, 1, 0)
+  val d = Vector(Vector(0, 7, 14, 21), Vector(7, 0, 10, 15), Vector(14, 10, 0, 5), Vector(21, 15, 5, 0))
+  val res = objRiego.costoMovilidadPar(f,pi,d)
+  assert( res == 22 )
   }
 }
